@@ -1,17 +1,18 @@
 from pyrogram import Client , filters
-import os
 
 #---config---#
-bot = {"api_id":3674694, "api_hash": "0e4b9ef7b55458d0fef367259edee34c","token":"1881665607:AAHCUiTiy50i52RF7Bho_nJ2PJEguGt9Myo"}
+bot = {"api_id":API_ID, "api_hash": "API_HASH","token":"BOT_TOKEN","user":"@USERNAME_BOT","admin": "@USERNAME_ADMIN"}
 #---------------#
 
 #---clinet---#
 app = Client(session_name="bot",api_id=bot["api_id"],api_hash=bot["api_hash"],bot_token=bot["token"])
-os.system("clear")
 #-------------#
 
+user = bot["user"]
+admin = bot["admin"]
+
 #---start message---#
-@app.on_message(filters.command(["start","start@msg_infobot"]) & filters.private)
+@app.on_message(filters.command(["start",f"start{user}"]) & filters.private)
 def start_(c,m):
     c.send_chat_action(m.chat.id,"typing")
     m.reply_text("""
@@ -23,7 +24,7 @@ you can get help with send /help
 #-------------------------#
 
 #---inf part---#
-@app.on_message(filters.command(["inf@msg_infobot","inf"]) & filters.reply, group=1)
+@app.on_message(filters.command([f"inf{user}","inf"]) & filters.reply, group=1)
 def info(c,m):
     c.send_chat_action(m.chat.id,"typing")
     if 4096 >= len(str(m)):
@@ -38,7 +39,7 @@ def info(c,m):
 #-----------------#
 
 #---info media---#
-@app.on_message(filters.command(["infmd@msg_infobot","infmd"]) & filters.reply, group=2)
+@app.on_message(filters.command([f"infmd{user}","infmd"]) & filters.reply, group=2)
 def infmd(c,m):
     media = m.reply_to_message
     c.send_chat_action(m.chat.id,"typing")
@@ -49,7 +50,7 @@ def infmd(c,m):
 #----------------------#
 
 #---info user---#
-@app.on_message(filters.command(["infusr","infusr@msg_infobot"]) & filters.reply, group=3)
+@app.on_message(filters.command(["infusr",f"infusr{user}"]) & filters.reply, group=3)
 def infuse(c,m):
     c.send_chat_action(m.chat.id,"typing")
     usr = m.reply_to_message.forward_from
@@ -63,14 +64,14 @@ def infuse(c,m):
 #-------------------#
 
 #---info group---#
-@app.on_message(filters.command(["infgp","infgp@msg_infobot"]) & filters.group, group=4)
+@app.on_message(filters.command(["infgp",f"infgp{user}"]) & filters.group, group=4)
 def infgp(c,m):
     c.send_chat_action(m.chat.id,"typing")
     m.reply_text(m.chat)
 #---------------------#
 
 #---help---#
-@app.on_message(filters.command(["help","help@msg_infobot"]) , group=5)
+@app.on_message(filters.command(["help",f"help{user}"]) , group=5)
 def help_(c,m):
     c.send_chat_action(m.chat.id,"typing")
     m.reply_text("""
@@ -123,9 +124,10 @@ Support and you can also inform the robot's problems in this way
 #------------#
 
 #---admin---#
-@app.on_message(filters.command(["admin","admin@msg_infobot"]), group=6)
+@app.on_message(filters.command(["admin",f"admin{user}"]), group=6)
 def admin(c,m):
     c.send_chat_action(m.chat.id,"typing")
-    m.reply_text("id admin is :\n@h_app_y\nplease don't spam bot and don't flooding private message")
+    m.reply_text(f"id admin is :\n{admin}\nplease don't spam bot and don't flooding private message")
 #---------------#
+
 app.run()
