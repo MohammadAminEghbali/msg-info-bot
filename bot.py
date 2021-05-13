@@ -75,6 +75,7 @@ def infgp(c,m):
 def help_(c,m):
     c.send_chat_action(m.chat.id,"typing")
     m.reply_text("""
+━┅┅┈*┈┅┅━
 Hello Robot guide message information
 
 • Command /start to start or restart the robot
@@ -90,36 +91,7 @@ Hello Robot guide message information
 • Command /admin to get admin ID 
 You can use this to update the robot or provide the appropriate server or ... 
 Support and you can also inform the robot's problems in this way
-
 ━┅┅┈*┈┅┅━
-
-سلام راهنمای ربات اطلاعات پیام
-
-• دستور
-/start
-برای شروع یا راه اندازی مجدد ربات
-
-• دستور
-/inf
-اطلاعات پیام را نمایش میدهد **(باید روی پیام ریپلای کنید)**
-
-• دستور
-/infmd
-اطلاعات مدیا را نمایش میدهد **(باید روی پیام ریپلای کنید و همچنین پیام از نوع مدیا باشد مثل فیلم ، عکس ، آهنگ و ..)**
-
-• دستور
-/infusr
-اطلاعات یوزر نیم را میدهد **(باید پیامی از شخص فوروارد کنید و روی آن ریپلای کنید همچنین نباید فوروارد شخص بسته باشد)**
-
-• دستور
-/infgp
-اطلاعات گروه را نشان میدهد **(نیازی به ریپلای ندارد ولی حتما باید در گروه ها ارسال شود)**
-
-• دستور 
-/admin
- برای دریافت آیدی مدیر است 
-شما میتوانید از این طریق ربات را برای به روزرسانی های جدید یا تهیه سرور مناسب یا ... 
-حمایت کنید و همچنین میتوانید مشکلات ربات را از این طریق اطلاع رسانی کنید
 """)
 #------------#
 
