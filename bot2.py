@@ -1,11 +1,11 @@
 from pyrogram import Client , filters
 
 #---config---#
-bot = {"api_id":3674694, "api_hash": "0e4b9ef7b55458d0fef367259edee34c","token":"1855543448:AAGKuF0jboFQ81O086luNHdq8wVmEfG1D88"}
+bot = {"api_id":3674694, "api_hash": "0e4b9ef7b55458d0fef367259edee34c"}
 #---------------#
 
 #---clinet---#
-app = Client(session_name="bot",api_id=bot["api_id"],api_hash=bot["api_hash"],bot_token=bot["token"])
+app = Client(session_name="bot",api_id=bot["api_id"],api_hash=bot["api_hash"])
 #-------------#
 
 #---start message---#
